@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
+from interfaces.models import Coffee
 
+menu = ['Главная страница', 'Статистика']
 def order(request):
-    lst = [{"id": 1, "name": "Andrew", "coffee": "Raf"},
-           {"id": 2, "name": "Victor", "coffee": "Latte"}]
-    order = {"order": lst}
-    return render(request, "index.html", context=order)
+    coffee = Coffee.objects.all()
+    return render(request, "index.html", {'menu': menu,
+                                          'title': 'order',
+                                          'client': coffee})
 
 

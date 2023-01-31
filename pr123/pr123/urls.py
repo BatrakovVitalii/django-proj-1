@@ -20,5 +20,5 @@ from interfaces import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('order/', views.order)
+    path('', views.order)
 ]

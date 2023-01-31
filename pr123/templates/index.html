@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    <title>Заказ кофе</title>
+{%extends 'base.html'%}
 
-  </head>
-
-  <body>
-  <h1>Order</h1>
-  <ul>
-    {% for coffee in order%}
-    <li>{{coffee.id}} {{coffee.name}} {{coffee.coffee}}</li>
+{% block content %}
+<h1>{{title}}</h1>
+<table>
+    {% for order in client %}
+    <tr>
+        <td>{{order.name}}</td>
+        <td>{{order.V}}</td>
+        <td>{{order.price}}</td>
+        <td><button>Done</button></td>
+    </tr>
     {%endfor%}
-  </ul>
-  </body>
-</html>
+</table>
+{%endblock%}
